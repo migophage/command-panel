@@ -25,8 +25,8 @@ body.light-mode {
 .toggle-switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 26px;
+    width: 60px;
+    height: 30px;
     margin-bottom: 15px;
 }
 
@@ -47,29 +47,31 @@ body.light-mode {
     bottom: 0;
     background-color: #4b4b4b;
     transition: 0.3s;
-    border-radius: 26px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    font-size: 14px;
 }
 
-/* Round toggle indicator */
+/* Sun/Moon Icons */
 .slider::before {
-    content: "";
+    content: "🌙";
     position: absolute;
-    height: 18px;
-    width: 18px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
+    left: 6px;
     transition: 0.3s;
-    border-radius: 50%;
 }
 
-/* Light mode styles when checked */
+/* Light Mode - Move the sun icon to right */
+input:checked + .slider::before {
+    content: "☀️";
+    left: 34px;
+}
+
+/* Light mode background */
 input:checked + .slider {
     background-color: #f8d347;
-}
-
-input:checked + .slider::before {
-    transform: translateX(24px);
 }
 
 /* Commands List */
