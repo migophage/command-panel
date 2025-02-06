@@ -67,14 +67,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     });
 
-    // Light/Dark mode toggle
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-        localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+    // Light/Dark mode toggle using checkbox
+    themeToggle.addEventListener("change", () => {
+        document.body.classList.toggle("light-mode", themeToggle.checked);
+        localStorage.setItem("theme", themeToggle.checked ? "light" : "dark");
     });
 
     // Load saved theme
     if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
+        themeToggle.checked = true;
     }
 });

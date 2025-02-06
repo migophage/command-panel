@@ -9,8 +9,15 @@
 <body>
     <div id="commands-container">
         <h2>Available Chat Commands</h2>
-        <button id="theme-toggle">Toggle Light/Dark Mode</button>
+        
+        <!-- Dark Mode Toggle -->
+        <label class="toggle-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+
         <ul id="commands-list"></ul>
+
         <div id="pagination">
             <button id="prev-page">◀ Prev</button>
             <span id="page-info"></span>
