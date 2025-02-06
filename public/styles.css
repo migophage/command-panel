@@ -74,6 +74,10 @@ input:checked + .slider {
     background-color: #7E6506;
 }
 
+h2 {
+    font-size: 18px;
+}
+
 /* Commands List */
 ul {
     list-style: none;
@@ -81,10 +85,17 @@ ul {
 }
 
 li {
-    padding: 5px;
+    padding: 10px;
     background: #323239;
-    margin: 5px;
+    margin: 5px 0;
     border-radius: 5px;
+}
+
+li em {
+    font-style: italic;
+    color: #a0a0a0;
+    margin-top: 5px;
+    display: block;
 }
 
 body.light-mode li {

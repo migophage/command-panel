@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     let currentPage = 1;
     let maxCommandsPerPage = 10;
 
-    try {
+    try 
+    {
         // Fetch config.json
         const configResponse = await fetch("config.json");
         const config = await configResponse.json();
@@ -21,29 +22,35 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         updatePagination();
         displayCommands();
-    } catch (error) {
+    }
+    catch (error) 
+    {
         console.error("Error loading config or commands:", error);
         commandsList.innerHTML = "<li>Error loading commands. Please try again later.</li>";
     }
 
     // Display commands with pagination
-    function displayCommands() {
+    function displayCommands() 
+    {
         commandsList.innerHTML = "";
-        const start = (currentPage - 1) * maxCommandsPerPage;
-        const end = start + maxCommandsPerPage;
-        const paginatedCommands = commands.slice(start, end);
+        commands.forEach(commandObj => 
+            {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <strong>${commandObj.command}</strong>: ${commandObj.description}
+                    ${commandObj.aliases && commandObj.aliases.length > 0 
+                        ? `<br><em>Aliases:</em> ${commandObj.aliases.join(", ")}` 
+                        : ""}`;
 
-        paginatedCommands.forEach(commandObj => {
-            const li = document.createElement("li");
-            li.innerHTML = `<strong>${commandObj.command}</strong>: ${commandObj.description}`;
-            commandsList.appendChild(li);
-        });
+                commandsList.appendChild(li);
+            });
 
         updatePagination();
     }
 
     // Update pagination buttons
-    function updatePagination() {
+    function updatePagination()
+    {
         const totalPages = Math.ceil(commands.length / maxCommandsPerPage);
         pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
 
@@ -52,30 +59,36 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // Pagination events
-    prevPageBtn.addEventListener("click", () => {
-        if (currentPage > 1) {
-            currentPage--;
-            displayCommands();
-        }
+    prevPageBtn.addEventListener("click", () => 
+        {
+        if (currentPage > 1) 
+            {
+                currentPage--;
+                displayCommands();
+            }
     });
 
-    nextPageBtn.addEventListener("click", () => {
+    nextPageBtn.addEventListener("click", () => 
+        {
         const totalPages = Math.ceil(commands.length / maxCommandsPerPage);
-        if (currentPage < totalPages) {
-            currentPage++;
-            displayCommands();
-        }
+        if (currentPage < totalPages) 
+            {
+                currentPage++;
+                displayCommands();
+            }
     });
 
     // Light/Dark mode toggle using checkbox
-    themeToggle.addEventListener("change", () => {
+    themeToggle.addEventListener("change", () => 
+        {
         document.body.classList.toggle("light-mode", themeToggle.checked);
         localStorage.setItem("theme", themeToggle.checked ? "light" : "dark");
     });
 
     // Load saved theme
-    if (localStorage.getItem("theme") === "light") {
-        document.body.classList.add("light-mode");
-        themeToggle.checked = true;
-    }
+    if (localStorage.getItem("theme") === "light") 
+        {
+            document.body.classList.add("light-mode");
+            themeToggle.checked = true;
+        }
 });
