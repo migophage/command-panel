@@ -1,0 +1,15 @@
+{
+    "manifest_version": 1,
+    "id": "chat-commands-panel",
+    "version": "1.1",
+    "type": "panel",
+    "name": "Chat Commands List",
+    "description": "Displays available chat commands for viewers.",
+    "author_name": "migophage",
+    "request_identity_link": false,
+    "permissions": [],
+    "panel_height": 300,
+    "panel_width": 300,
+    "viewer_url": "https://migophage.github.io/command-panel/public/panel.html",
+    "mobile_panel_url": "https://migophage.github.io/command-panel/public/mobile.html"
+}

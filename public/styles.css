@@ -1,0 +1,71 @@
+:root {
+    --bg-dark: #18181b;
+    --bg-light: #ffffff;
+    --text-dark: #fff;
+    --text-light: #000;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    padding: 10px;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+h2 {
+    font-size: 18px;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    background: #4b4b4b;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #5e5e5e;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+    background: #323239;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+body.light-mode li {
+    background: #e0e0e0;
+}
+
+/* Pagination */
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#pagination button {
+    background: #3b3b3b;
+    padding: 6px 10px;
+}
+
+body.light-mode #pagination button {
+    background: #d0d0d0;
+}

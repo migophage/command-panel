@@ -1,0 +1,8 @@
+{
+    "theme": "dark",
+    "show_descriptions": true,
+    "commands_source": "commands.json",
+    "max_commands_per_page": 10
+}
+  
+  
