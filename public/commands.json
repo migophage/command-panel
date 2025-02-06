@@ -1,7 +1,7 @@
 [
     { "command": "!help", "description": "Lists all commands" },
     { "command": "!uptime", "description": "Shows how long the stream has been live" },
-    { "command": "!lurk", "description": "Let others know you're lurking", "aliases": ["!afk"] },
+    { "command": "!lurk", "description": "Let others know you're lurking", "aliases": ["!afk", "!hide", "!gone"] },
     { "command": "!discord", "description": "Provides a link to the Discord server", "aliases": [] },
     { "command": "!twitter", "description": "Get a link to the Twitter profile", "aliases": ["!bird"] },
     { "command": "!shoutout <username>", "description": "Shout out another streamer" }
