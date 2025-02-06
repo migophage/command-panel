@@ -33,17 +33,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     function displayCommands() 
     {
         commandsList.innerHTML = "";
-        commands.forEach(commandObj => 
-            {
-                const li = document.createElement("li");
-                li.innerHTML = `
-                    <strong>${commandObj.command}</strong>: ${commandObj.description}
-                    ${commandObj.aliases && commandObj.aliases.length > 0 
-                        ? `<br><em>Aliases:</em> ${commandObj.aliases.join(", ")}` 
-                        : ""}`;
-
-                commandsList.appendChild(li);
-            });
+        commands.forEach(commandObj => {
+            const li = document.createElement("li");
+            const aliasesText = (Array.isArray(commandObj.aliases) && commandObj.aliases.length) 
+                ? `<br><em>Aliases:</em> ${commandObj.aliases.join(", ")}`
+                : "";
+            
+            li.innerHTML = `<strong>${commandObj.command}</strong>: ${commandObj.description} ${aliasesText}`;
+            commandsList.appendChild(li);
+        });
+        
 
         updatePagination();
     }
