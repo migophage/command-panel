@@ -63,7 +63,7 @@ body.light-mode {
     transition: 0.3s;
 }
 
-/* Light Mode - Move the sun icon to right */
+/* Light Mode - Change icon to sun */
 input:checked + .slider::before {
     content: "☀️";
     left: 34px;
@@ -71,7 +71,7 @@ input:checked + .slider::before {
 
 /* Light mode background */
 input:checked + .slider {
-    background-color: #f8d347;
+    background-color: #7E6506;
 }
 
 /* Commands List */
