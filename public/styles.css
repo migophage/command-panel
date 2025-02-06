@@ -118,3 +118,24 @@ body.light-mode li {
 body.light-mode #pagination button {
     background: #d0d0d0;
 }
+
+.has-tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Tooltip Styling */
+.has-tooltip:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+}

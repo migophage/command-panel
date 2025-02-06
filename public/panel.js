@@ -35,15 +35,17 @@ document.addEventListener("DOMContentLoaded", async function () {
         commandsList.innerHTML = "";
         commands.forEach(commandObj => {
             const li = document.createElement("li");
-            const aliasesText = (Array.isArray(commandObj.aliases) && commandObj.aliases.length) 
-                ? `<br><em>Aliases:</em> ${commandObj.aliases.join(", ")}`
-                : "";
-            
-            li.innerHTML = `<strong>${commandObj.command}</strong>: ${commandObj.description} ${aliasesText}`;
+            li.innerHTML = `<strong>${commandObj.command}</strong>: ${commandObj.description}`;
+        
+            // Check if aliases exist and are non-empty
+            if (Array.isArray(commandObj.aliases) && commandObj.aliases.length) {
+                li.setAttribute("title", `Aliases: ${commandObj.aliases.join(", ")}`);
+                li.classList.add("has-tooltip"); // Add a class for styling
+            }
+        
             commandsList.appendChild(li);
         });
         
-
         updatePagination();
     }
 
